@@ -1,9 +1,12 @@
 
-import style from './style.module.css';
+import { DatePickerCalendar } from '../components/date-picker/';
+import style from './style.module.scss';
 
 function App() {
   return (
-    <div></div>
+    <div>
+      <DatePickerCalendar />
+    </div>
   );
 }
 
