@@ -1,18 +1,20 @@
 import { Calendar } from "react-date-range";
-import format from "date-fns/format";
+import moment from "moment";
 import React, { useState, useEffect, useRef } from "react";
 import style from "./style.module.scss";
 
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
-export const DatePickerCalendar = () => {
+export const ClientRandomInput = () => {
     const [calendar, setCalendar] = useState("");
     const [open, setOpen] = useState(false);
     const refOne = useRef(null);
 
+    const currentDate = moment().format("DD/MM/YYYY");
+
     useEffect(() => {
-        setCalendar(format(new Date(), "MM/dd/yyyy"));
+        setCalendar(currentDate);
         document.addEventListener("keydown", hideOnEscape, true);
         document.addEventListener("click", hideOnClickOutside, true);
     }, []);
@@ -30,12 +32,14 @@ export const DatePickerCalendar = () => {
     };
 
     const handleSelect = (date) => {
-        setCalendar(format(date, "MM/dd/yyyy"));
+        setCalendar(moment(date).format("DD/MM/YYYY"));
         setOpen(false);
     };
 
     return (
         <div className={style.calendarWrap}>
+            <div className={style.title}>Set the Date:</div>
+
             <input
                 value={calendar}
                 readOnly
