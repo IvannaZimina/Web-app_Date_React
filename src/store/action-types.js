@@ -1,0 +1,1 @@
+export const CALENDAR_ERROR = "CALENDAR_ERROR";
