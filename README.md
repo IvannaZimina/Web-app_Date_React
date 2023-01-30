@@ -46,6 +46,6 @@ Json-server uses the port 8999.<br/>
 ## Additional information
 The Axios library was used to build REST API (post and get requests).<br/>
 For formating the date - the Moment library was used.<br/>
-For chowing calendar behind the input - React-Date-Range Libray was used.<br/>
+For showing calendar behind the input - React-Date-Range Libray was used.<br/>
 Redux store was used to exchange data between components.<br/>
 For page design, simple styles were added using SASS.<br/>
