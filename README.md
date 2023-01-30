@@ -12,10 +12,10 @@ json-server
 
 ## Description
 On the start page - both client and default inputs show the current date.
-First Input - is for Client to choose the date in the Calendar.
-Second Input - set by deafault and can't be changed by Client.
-When Client change the date in the first input - the second input updates with new date.
-Tha calendar in the second input only for vizualization of the calendar with the current date.
+   First Input - is for Client to choose the date in the Calendar.
+   Second Input - set by deafault and can't be changed by Client.
+   When Client change the date in the first input - the second input updates with new date.
+   Tha calendar in the second input only for vizualization of the calendar with the current date.
 ![image](https://user-images.githubusercontent.com/46706194/215551922-1fcbd1b0-537b-4a4a-891d-5da58cac367c.png)
 
 If client chooses the date not in the current month - the error message is showing.
