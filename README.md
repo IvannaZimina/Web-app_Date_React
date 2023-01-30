@@ -33,10 +33,11 @@ The date were wrote to the DB on the json-server in UTC format.
 ![image](https://user-images.githubusercontent.com/46706194/215555451-22fcc138-0816-4652-a67c-278ac3e40b1a.png)
 
 ## Environment
-Both front-end and back-end should be started synchronize to work correct
+Both front-end and back-end should be started synchronize to work correctly.
 
 ### Front-end environment
-Clone project to your machine. Use npm install to add all dependencies in project and use script for starting web-app.
+Clone current project to your machine. Use npm install to add all dependencies in project and use script for starting web-app.
+
 ### Back-end environment
 Clone project from https://github.com/IvannaZimina/Web-app_Date_React_JSON_SERVER
 Use npm install to add all dependencies in project and use script for starting web-app.
