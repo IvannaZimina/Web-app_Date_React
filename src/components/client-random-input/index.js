@@ -1,5 +1,5 @@
 import { Calendar } from "react-date-range";
-import { CalendarErrorMessage } from "../calendar-error"
+import { CalendarErrorMessage } from "../calendar-error";
 import moment from "moment";
 import {
     setWrongMonth,
@@ -21,13 +21,13 @@ export const ClientRandomInput = () => {
     const [open, setOpen] = useState(false);
     const refOne = useRef(null);
 
-    const currentDate = moment().format("DD/MM/YYYY");
+    const currentDate = moment().format("YYYY MM DD");
 
     useEffect(() => {
         setCalendar(currentDate);
         document.addEventListener("keydown", hideOnEscape, true);
         document.addEventListener("click", hideOnClickOutside, true);
-    }, []);
+    }, [currentDate]);
 
     const hideOnEscape = (ev) => {
         if (ev.key === "Escape") {
@@ -43,7 +43,7 @@ export const ClientRandomInput = () => {
 
     const handleSelect = (date) => {
         const wrongMonth = moment(date).month() + 1;
-        const choosenClienDate = moment(date).format("DD/MM/YYYY");
+        const choosenClienDate = moment(date).format("YYYY MM DD");
 
         if (wrongMonth !== calendarStore.currentMonth) {
             setWrongMonth(dispatch, wrongMonth);

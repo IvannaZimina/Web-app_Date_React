@@ -27,3 +27,13 @@ export const setChoosenDate = (dispatch, choosenDate) => {
         payload: choosenDate,
     });
 };
+
+export const showDateList = (dispatch, { flag, dateList }) => {
+    return dispatch({
+        type: actionTypes.CALENDAR_DATE_LIST,
+        payload: {
+            flag: flag,
+            dateList: dateList,
+        },
+    });
+};

@@ -1,7 +1,7 @@
 import { Calendar } from "react-date-range";
 import { httpCommon } from "../../server-settings/http-common";
 import moment from "moment";
-import { setCurrentMonth } from "../../store/calendar-creator";
+import { setCurrentMonth, showDateList } from "../../store/calendar-creator";
 import { v4 as uuidv4 } from "uuid";
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -20,13 +20,13 @@ export const CalendarCurrentDate = () => {
     const [postMessage, setPostMessage] = useState("");
     const refOne = useRef(null);
 
-    const currentDate = moment().format("DD/MM/YYYY");
+    const currentDate = moment().format("YYYY MM DD");
     const currentMonth = moment().month() + 1;
     const clientChoosenDate = calendarStore.choosenDate;
 
     useEffect(() => {
         setCurrentMonth(dispatch, currentMonth);
-    }, []);
+    }, [dispatch, currentMonth]);
 
     useEffect(() => {
         setCalendar(currentDate);
@@ -73,6 +73,18 @@ export const CalendarCurrentDate = () => {
         }
     };
 
+    const getDateHandler = async () => {
+        try {
+            const data = await httpCommon.get("/dates");
+
+            if (data.status === 200) {
+                showDateList(dispatch, { flag: true, dateList: data.data });
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <div className={style.calendarWrap}>
             <div className={style.title}>Current Date:</div>
@@ -103,6 +115,14 @@ export const CalendarCurrentDate = () => {
                     onClick={sendDateHandler}
                 >
                     SEND
+                </button>
+                <br />
+                <button
+                    type="button"
+                    className={style.getDateBtn}
+                    onClick={getDateHandler}
+                >
+                    GET DATE LIST
                 </button>
             </div>
 
